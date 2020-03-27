@@ -1,0 +1,36 @@
+<mvc:View xmlns:core="sap.ui.core" xmlns:mvc="sap.ui.core.mvc" xmlns="sap.m" xmlns:f="sap.ui.layout.form" xmlns:html="http://www.w3.org/1999/xhtml" controllerName="cromos.it.RelatorioClientes.controller.Create">
+	
+	<App>
+		<pages>
+			<Page title="Adicionar Cliente" showNavButton="true" navButtonPress=".onNavBack" floatingFooter="true">
+				<content>
+					<f:SimpleForm editable="true" layout="ResponsiveGridLayout" title="Adicionar Cliente" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+						
+						<Label text="Nome"/>
+						<Input valueLiveUpdate="true" value="{Nome}" maxLength="40"/>
+							
+						<Label text="UF"/>
+						<Input value="{UF}"/>
+						<Label text="Email"/>
+						<Input value="{Email}"/>
+						<Label text="Telefone"/>
+						<Input value="{Telefone}"/>
+						
+						
+						
+					</f:SimpleForm>
+					
+				</content>
+			<footer>
+			    <Toolbar width="100%" id="__toolbar1">
+			        <content>
+			            <ToolbarSpacer id="__spacer0"/>
+			            <Button text="Gravar" width="100px" id="__button0" type="Accept" press="onGravar"/>
+			            <Button text="Cancelar" width="100px" id="__button1" type="Reject" press="onCancelar"/>
+			        </content>
+			    </Toolbar>
+			</footer>
+			</Page>
+		</pages>
+	</App>
+</mvc:View>

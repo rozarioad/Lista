@@ -1,0 +1,48 @@
+<mvc:View xmlns="sap.m" xmlns:mvc="sap.ui.core.mvc" xmlns:semantic="sap.f.semantic" xmlns:l="sap.ui.layout" xmlns:f="sap.ui.layout.form" controllerName="cromos.it.RelatorioClientes.controller.Object">
+	
+	<semantic:SemanticPage id="page" headerPinnable="false" showFooter="true" toggleHeaderOnTitleClick="false" busy="{objectView>/busy}" busyIndicatorDelay="{objectView>/delay}">
+		<semantic:titleHeading>
+			<Title text="{Nome}"/>
+		</semantic:titleHeading>
+		<semantic:headerContent>
+			<ObjectNumber numberUnit="{UF}"/>
+		</semantic:headerContent>
+		<semantic:sendEmailAction>
+			<semantic:SendEmailAction id="shareEmail" press="onShareEmailPress"/>
+		</semantic:sendEmailAction>
+		<semantic:content>
+			
+			<l:VerticalLayout width="100%">
+				
+				<f:SimpleForm editable="true" layout="ResponsiveGridLayout" labelSpanXL="3" labelSpanL="3" labelSpanM="3" labelSpanS="12" adjustLabelSpan="false" emptySpanXL="4" emptySpanL="4" emptySpanM="4" emptySpanS="0" columnsXL="1" columnsL="1" columnsM="1" singleContainerFullSize="false">
+					<Label text="ID"/>
+					<Text text="{ID}"/>
+						
+					<Label text="Telefone"/>
+					<Input value="{Telefone}"/>
+						
+					
+				</f:SimpleForm>
+			
+			<List noDataText="Drop list items here" id="__list0" items="{     path: 'vendas',     parameters:{      expand: 'cliente'     },     sorter: {       path: 'DataCriacao',       descending: true        }     }">
+				<items>
+					<ObjectListItem type="Active" title="{Descricao}" number="{ValorLiquido}" id="__item3">
+						<attributes>
+							<ObjectAttribute text="{IDVenda}" id="__attribute0"/>
+							<ObjectAttribute text="{        path: 'DataCriacao',        type: 'sap.ui.model.type.Date',        formatOptions:         {          style: 'short',          UTC: true         }        }"/>
+							<ObjectAttribute text="{cliente/Email}"/>
+							
+						</attributes>
+						
+					</ObjectListItem>
+				</items>
+			</List>
+			
+			</l:VerticalLayout>
+		</semantic:content>
+	<semantic:footerCustomActions>
+	    <Button text="Gravar" type="Accept" width="100px" id="__button0" press="onGravar"/>
+	    <Button text="Cancelar" type="Reject" width="100px" id="__button1" press="onCancelar"/>
+	</semantic:footerCustomActions>
+	</semantic:SemanticPage>
+</mvc:View>
